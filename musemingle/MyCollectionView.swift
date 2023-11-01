@@ -3,7 +3,7 @@ import SwiftUI
 struct MyCollectionView: View {
     var userID: String = "JAMIEPARK90"
     
-    var bookmarkedImages: [String] = ["sampleImage1", "sampleImage2", "sampleImage3", "sampleImage4"]
+    var bookmarkedImages: [String] = ["sampleImage1", "sampleImage2", "sampleImage3", "sampleImage41","sampleImage42","sampleImage14","sampleImage4","sampleImage21","sampleImage43",]
 
     let columns: [GridItem] = Array(repeating: .init(.flexible(), spacing: 15), count: 2)
     
