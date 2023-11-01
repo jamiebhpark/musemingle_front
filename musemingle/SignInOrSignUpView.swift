@@ -15,68 +15,75 @@ struct SignInOrSignUpView: View {
     }
     
     var body: some View {
-        VStack {
-            Spacer()
-            Button(action: {
-                viewModel.isLoggedIn = true
-            }) {
-                HStack {
-                    Image("google_icon")
-                        .resizable()
-                        .frame(width: 18, height: 18)
-                    Text("Continue with Google")
+        ZStack {
+            // 배경 이미지 추가
+            Image("bgimage")
+                .resizable()
+                .scaledToFill()
+                .edgesIgnoringSafeArea(.all)
+            VStack {
+                Spacer()
+                Button(action: {
+                    viewModel.isLoggedIn = true
+                }) {
+                    HStack {
+                        Image("google_icon")
+                            .resizable()
+                            .frame(width: 18, height: 18)
+                        Text("Continue with Google")
+                    }
+                    .padding(.vertical, 12)
+                    .frame(maxWidth: 280)
+                    .background(Color.white)
+                    .cornerRadius(10)
+                    .foregroundColor(.black)
+                    .shadow(color: .black.opacity(0.25), radius: 1, x: 0, y: 1)
+                    .shadow(color: .black.opacity(0.08), radius: 0, x: 0, y: 0)
                 }
-                .padding(.vertical, 12)
-                .frame(maxWidth: 280)
-                .background(Color.white)
-                .cornerRadius(10)
-                .foregroundColor(.black)
-                .shadow(color: .black.opacity(0.25), radius: 1, x: 0, y: 1)
-                .shadow(color: .black.opacity(0.08), radius: 0, x: 0, y: 0)
-            }
-            .padding(.bottom, 10)
-            
-            Button(action: {
-                viewModel.isLoggedIn = true
-            }) {
-                HStack {
-                    Image("facebook_icon")
-                        .resizable()
-                        .frame(width: 18, height: 18)
-                    Text("Continue with Facebook")
+                .padding(.bottom, 10)
+                
+                Button(action: {
+                    viewModel.isLoggedIn = true
+                }) {
+                    HStack {
+                        Image("facebook_icon")
+                            .resizable()
+                            .frame(width: 18, height: 18)
+                        Text("Continue with Facebook")
+                    }
+                    .padding(.vertical, 12)
+                    .frame(maxWidth: 280)
+                    .background(Color.blue)
+                    .cornerRadius(10)
+                    .foregroundColor(.white)
                 }
-                .padding(.vertical, 12)
-                .frame(maxWidth: 280)
-                .background(Color.blue)
-                .cornerRadius(10)
-                .foregroundColor(.white)
-            }
-            .padding(.bottom, 10)
-            
-            Button(action: {
-                viewModel.isLoggedIn = true
-            }) {
-                HStack {
-                    Image(systemName: "applelogo")
-                        .resizable()
-                        .frame(width: 18, height: 18)
-                    Text("Continue with Apple")
+                .padding(.bottom, 10)
+                
+                Button(action: {
+                    viewModel.isLoggedIn = true
+                }) {
+                    HStack {
+                        Image(systemName: "applelogo")
+                            .resizable()
+                            .frame(width: 18, height: 18)
+                        Text("Continue with Apple")
+                    }
+                    .padding(.vertical, 12)
+                    .frame(maxWidth: 280)
+                    .background(Color.black)
+                    .cornerRadius(10)
+                    .foregroundColor(.white)
                 }
-                .padding(.vertical, 12)
-                .frame(maxWidth: 280)
-                .background(Color.black)
-                .cornerRadius(10)
-                .foregroundColor(.white)
+                .padding(.bottom, 50)
             }
-            .padding(.bottom, 50)
+            .padding([.leading, .trailing], 16)
+            .navigationBarHidden(true)
+            .overlay(
+                NavigationLink(destination: MainView().environmentObject(viewModel), isActive: $viewModel.isLoggedIn) {
+                    EmptyView()
+                }
+                    .hidden()
+            )
         }
-        .padding([.leading, .trailing], 16)
-        .navigationBarHidden(true)
-        .overlay(
-            NavigationLink(destination: MainView().environmentObject(viewModel), isActive: $viewModel.isLoggedIn) {
-                EmptyView()
-            }
-            .hidden()
-        )
     }
 }
