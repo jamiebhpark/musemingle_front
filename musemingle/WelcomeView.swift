@@ -15,7 +15,8 @@ struct WelcomeView: View {
 
         NavigationView {
             ZStack {
-                Image("")
+                Image("bgimage")
+
                     .resizable()
                     .scaledToFill()
                     .edgesIgnoringSafeArea(.all)
