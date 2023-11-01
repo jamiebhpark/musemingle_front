@@ -4,7 +4,8 @@ struct PortfolioView: View {
     var userID: String = "JAMIEPARK90"
     
     // Sample portfolio pieces for demonstration
-    var portfolioItems: [String] = ["sampleImage1", "sampleImage2", "sampleImage3", "sampleImage4"]
+    var portfolioItems: [String] = ["sampleImage1", "sampleImage102", "sampleImage103", "sampleImage104","sampleImage105"]
+
 
     // We're using the same grid structure as in MyCollectionView
     let columns: [GridItem] = Array(repeating: .init(.flexible(), spacing: 15), count: 2)
